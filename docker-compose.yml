@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+    container_name: kt_project
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/ktproject
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=cms.settings.dev
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}  # This will use the value from the .env file
+      - DB_PORT=${DB_PORT}
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

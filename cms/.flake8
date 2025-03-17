@@ -1,0 +1,20 @@
+
+[flake8]
+
+exclude =
+    migration,
+    __pycache__,
+    .env,
+    .gitignore,
+    settings.py,
+    requirements.txt,
+    README.md,
+    manage.py,
+    venv/,
+    .idea/,
+    .vscode/,
+    Dockerfile,
+    docker-compose.yml,
+    requests.log,
+    middleware.py,
+    .mypy_cache
