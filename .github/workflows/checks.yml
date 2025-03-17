@@ -41,7 +41,7 @@
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: Userdatesting
+          app-name: bugbusterktproject
           slot-name: staging
           publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
           images: bugbustersktproject.azurecr.io/${{secrets.AzureAppService_ContainerUsername}}/cicdtest1-web:${{github.sha}}
