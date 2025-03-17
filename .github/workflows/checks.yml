@@ -24,7 +24,7 @@
             password: ${{secrets.AzureAppService_ContainerPassword}}
 
         - name: Build and push image to Azure Container Registry
-          uses: docker/build-push-action@v2
+          uses: docker/build-push-action@v3
           with:
             push: true
             tags: bugbusters.azurecr.io/${{ secrets.AzureAppService_ContainerUsername }}/cicdtest1-web:${{github.sha}}
