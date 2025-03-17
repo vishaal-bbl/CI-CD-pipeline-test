@@ -19,7 +19,7 @@
         - name: Login to registry
           uses: docker/login-action@v2
           with:
-            registry: https://bugbusters.azurecr.io/
+            registry: https://bugbustersktproject.azurecr.io/
             username: ${{secrets.AzureAppService_ContainerUsername}}
             password: ${{secrets.AzureAppService_ContainerPassword}}
 
