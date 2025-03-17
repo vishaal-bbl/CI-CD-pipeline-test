@@ -27,5 +27,5 @@
           uses: docker/build-push-action@v2
           with:
             push: true
-            tags: bugbusters.azurecr.io/${{ secrets.AzureAppService_ContainerUsername }}/cicdtest1-web
+            tags: bugbusters.azurecr.io/${{ secrets.AzureAppService_ContainerUsername }}/cicdtest1-web:${{github.sha}}
             file: ./Dockerfile
