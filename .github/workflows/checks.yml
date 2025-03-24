@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build and Run
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
@@ -32,10 +32,10 @@ jobs:
 
   deploy:
     name: Deploy to Azure Web App
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     environment:
-      name: production
+      name: staging
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
